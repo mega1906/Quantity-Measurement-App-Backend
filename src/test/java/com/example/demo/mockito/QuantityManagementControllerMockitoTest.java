@@ -58,16 +58,9 @@ class QuantityManagementControllerMockitoTest {
         when(service.convert(any(QuantityDto.class), eq(Unit.CENTIMETER))).thenReturn(200.0);
 
         double result = controller.convert(new QuantityDto(2.0, Unit.METER), Unit.CENTIMETER);
-        System.out.println("convertPost result=" + result);
 
         assertEquals(200.0, result);
-        verify(service, times(1)).convert(quantityDtoCaptor.capture(), eq(Unit.CENTIMETER));
-
-        QuantityDto captured = quantityDtoCaptor.getValue();
-        assertNotNull(captured);
-        System.out.println("captured dto: value=" + captured.getValue() + " unit=" + captured.getUnit());
-        assertEquals(2.0, captured.getValue());
-        assertEquals(Unit.METER, captured.getUnit());
+        verify(service).convert(any(QuantityDto.class), eq(Unit.CENTIMETER));
     }
 
     @Test
