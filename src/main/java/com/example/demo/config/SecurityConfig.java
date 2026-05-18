@@ -103,7 +103,8 @@ public class SecurityConfig {
         configuration.setAllowedOrigins(
             Arrays.asList(
                 "http://localhost:3000",
-                "http://localhost:8081"
+                "http://localhost:8081",
+                "http://3.107.229.154:3000"
             )
         );
 
